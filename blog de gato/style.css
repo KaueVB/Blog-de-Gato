@@ -1,0 +1,238 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+    font-size: 62.5%;
+
+    --background-color-blue: #065E7C;
+    --background-color-activated: #43b5db;
+    --background-color-input: #387E96;
+    --outline-input: #1ecceb;
+    --background-color-logo: #F4FCFF;
+    --color-base-white: #FFFFFF;
+
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+html, body, input {
+    font-family: 'Mulish', sans-serif;
+    font-size: 1.6rem;
+}
+
+body {
+    background-color: var(--color-base-white);
+}
+
+#app {
+    display: grid;
+    justify-content: center;
+    margin: 0 auto;
+    grid-template-rows: max-content 1fr max-content max-content;
+    grid-template-areas:
+    "header"
+    "main"
+    "aside"
+    "footer";
+
+    /* width: 100%; */
+    /* width: max(350px, 500px); */
+    width: clamp(32rem, 100%, 60rem);
+    /* width: 420px; */
+    /* width: max(42rem, 58rem); */
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    /* talvez tenha que tirar o space-evenly e colocar como center */
+    justify-content: center;
+    gap: 2.6rem;
+}
+
+header {
+    grid-area: header;
+    
+    width: 100%;
+    padding: 1.2rem 2.8rem;
+
+    background-color: var(--background-color-blue);
+}
+
+.logo {
+    width: 4rem;
+    height: 4rem;
+    padding: .8rem;
+    border-radius: 9999px;
+
+    background-color: var(--background-color-logo);
+}
+
+header form {
+    flex: 0.8;
+}
+
+.container input  {
+    padding: 1.2rem 1.6rem;
+    width: max(20rem, 100%);
+
+    border: none;
+    border-radius: .4rem;
+
+    color: var(--color-base-white);
+    background-color: var(--background-color-input);
+}
+
+.container input::placeholder {
+    color: var(--color-base-white);
+}
+
+.container input:focus {
+    outline: 2px solid var(--outline-input);
+}
+
+.avatar {
+    width: 4.2rem;
+    height: 4.2rem;
+    border-radius: 50%;
+}
+
+main {
+    grid-area: main;
+}
+
+main .image {
+    /* width: 100%; */
+    width: clamp(32rem, 100%, 80rem);
+    border: none;
+}
+
+.title, .main-text, aside {
+    padding: 0 2.6rem;
+}
+
+.title {
+    margin-top: 3.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+}
+
+.title h1 {
+    font-size: 2.4rem;
+}
+
+.buttons {
+    display: flex;
+    gap: 1.4rem;
+}
+
+.buttons button {
+    padding: 1.2rem;
+    border: none;
+    border-radius: 9999px;
+
+    transition: transform .3s ease;
+    cursor: pointer;
+    background-color: var(--background-color-blue);
+}
+
+.buttons button:hover {
+    transform: scale(1.1);
+}
+
+.buttons button.activated {
+    background-color: var(--background-color-activated);
+}
+
+.main-text {
+    width: 100%;
+    /* border: 1px solid green; */
+}
+
+main p {
+    margin-top: 3.6rem;
+    /*28rem no min, 100% no meio e 72rem no max */
+    width: clamp(32rem, 100%, 60rem);
+    /* width: 100%; */
+    /* width: clamp(24rem, 100%, 60rem); */
+    /* width: min(38rem, 100%); */
+    border: 1px solid red;
+
+    font-size: 1.6rem;
+}
+
+aside {
+    grid-area: aside;
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;
+}
+
+aside h2 {
+    margin-top: 3.2rem;
+}
+
+.articles {
+    display: flex;
+    gap: 1.6rem;
+}
+
+.articles a img {
+    transition: all .3s ease;
+}
+
+.articles a img:hover {
+    transform: scale(1.1);
+    filter: brightness(1.1);
+}
+
+.articles-text {
+    width: 21.5rem;
+}
+
+.articles strong {
+    font-size: 1.8rem;
+}
+
+.articles p {
+    font-size: 1.4rem;
+    margin-top: 1.4rem;
+}
+
+footer {
+    grid-area: footer;
+    margin-top: 3.8rem;
+    width: 100%;
+    padding: 2.6rem 1.6rem;
+    text-align: center;
+
+    color: var(--color-base-white);
+    background-color: var(--background-color-blue);
+}
+
+/* @media (min-width: 600px) {
+    #app {
+        width: 100%;
+    }
+
+    .title, main p, aside {
+        padding: 0 1.2rem;
+    }
+} */
